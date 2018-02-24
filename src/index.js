@@ -12,6 +12,8 @@ const names = ["Jimmy", "Bob", "Roland", "Whitman", "Delbert"]
 
 console.log(`${pres.length * parts.length * names.length} available names`)
 
+const PORT = process.env.PORT
+
 const ioOptions = {
   pingTimeout: 1000 * 15,
   pingInterval: 1000 * 10
@@ -24,6 +26,10 @@ const io = socketIO(server, ioOptions)
 const playerNames = []
 const waitingPlayers = []
 const runningGames = []
+
+server.listen(PORT, () => {
+  console.log(`Example listening on port ${PORT}!`)
+})
 
 app.get("/", (req, res) => {
   res.send("Hello World!")
@@ -95,11 +101,6 @@ io.on("connection", (socket) => {
   socket.on("itemScanned", item => {
     console.log(`${socket.id} scanned ${item}`)
   })
-})
-
-
-server.listen(5000, () => {
-  console.log("Example listening on port 5000!")
 })
 
 function removeFromWaitinglist(player) {
