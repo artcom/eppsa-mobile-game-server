@@ -11,5 +11,5 @@
 
 ### Example
 
-* `PORT=5000 npm run watch`Â
+* `PORT=5000 npm run watch`
 * Open `http://<eppsa-mobile-game-client-url>/?wsServer=http://localhost:5000&gitJsonApi=<gitJsonApiUrl>`
