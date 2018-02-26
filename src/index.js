@@ -31,10 +31,6 @@ server.listen(PORT, () => {
   console.log(`Example listening on port ${PORT}!`)
 })
 
-app.get("/", (req, res) => {
-  res.send("Hello World!")
-})
-
 io.on("connection", (socket) => {
   console.log(`${socket.id} A user connected.`)
 
